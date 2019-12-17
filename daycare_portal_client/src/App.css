@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.imgDimn{
+  width: 900px;
+  height: 700px;
+}
+.bcImage {
+  background-image: url('https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg');
+  background-image: url('https://as2.ftcdn.net/jpg/02/57/03/37/500_F_257033773_bWePCbifvglTauvCwHY3rluphWWbKjcm.jpg');
+  /* background-size: 100% 100%; */
+  background-size: cover;
+
+}
