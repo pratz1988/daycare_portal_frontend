@@ -173,6 +173,7 @@ class Teacher extends Component {
                 <input type="submit" value="create new activity" />{""}
                 <input type="submit" value="Edit" />{""}
                 <input type="submit" value="Delete" />{""}
+                <button class="ui yellow basic button">Yellow</button>
             </form>
             </>
         )
