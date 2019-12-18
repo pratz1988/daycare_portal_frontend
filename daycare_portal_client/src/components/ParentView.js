@@ -51,23 +51,77 @@ class ParentView extends Component {
     render() {
         const {parentName, childName, todayActivity} =  this.state
         return (
-            <>
-               <h1>Parent View</h1>
-              <div>
-                  <p>Name: {parentName} </p> 
-                  <p>ChildName: {childName}</p>
-                  {todayActivity.map(activity =>  (
-                      <div key={activity.id}>
-                        <p>Breakfast: {activity.breakfast}</p>
-                        <p>MorningActivity: {activity.morningActivity}</p>
-                        <p>Lunch: {activity.lunch}</p>
-                        <p>NapStartTime: {activity.napStartTime}</p>
-                        <p>NapEndTime: {activity.napEndTime}</p>
-                        <p>AfternoonSnack: {activity.afternoonSnack}</p>
-                        <p>AfternoonActivity: {activity.afternoonActivity}</p>
+            <>   
+            <div className='bcImage imgDimn'> 
+                <div>
+                    <div class="ui pointing secondary menu">
+                        <a class=" item">Home</a>
+                        <a class="active item">For Parents</a>
+                        <div class="right menu"><a class="item">logout</a></div>
                     </div>
-                  ))}
-              </div>
+                    {/* <div class="ui segment"><img src="/images/wireframe/media-paragraph.png" width="200px"/></div> */}
+                </div>
+                <div><br></br></div>
+                <h1 className="activities">Activities</h1>
+               <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui fluid vertical huge tabular menu">
+                            <a class="item">Monday</a>
+                            <a class=" item">Tuesaday</a>
+                            <a class=" active item">Wednesday</a>
+                            <a class="item">Thursday</a>
+                            <a class="  item">Friday</a>
+                        </div>
+                    </div>    
+                    <div class="stretched ten wide column">
+                        <div class="ui green segment ">
+                        <div class="ui grid">
+                            <div class="four wide column leftAlign mrgnLeft">
+                                <p>ParentName :</p> 
+                                <p>ChildName: </p>
+                                <p> Breakfast: </p>
+                                <p>MorningActivity: </p>
+                                <p>Lunch: </p>
+                                <p>NapStartTime: </p>
+                                <p>NapEndTime: </p>
+                                <p>AfternoonSnack: </p>
+                                <p>AfternoonActivity: </p>
+                            </div>
+                            <div class="six wide column leftAlign mrgnRight">
+                                <p> {parentName} </p> 
+                                <p>{childName}</p>
+                                {todayActivity.map(activity =>  (
+                                    <div key={activity.id} >
+                                        <p>  {activity.breakfast}</p>
+                                        <p>{activity.morningActivity}</p>
+                                        <p> {activity.lunch}</p>
+                                        <p>{activity.napStartTime}</p>
+                                        <p> {activity.napEndTime}</p>
+                                        <p> {activity.afternoonSnack}</p>
+                                        <p>{activity.afternoonActivity}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                            
+                            {/* <p>ParentName: {parentName} </p> 
+                            <p>ChildName: {childName}</p>
+                            {todayActivity.map(activity =>  (
+                                <div key={activity.id} >
+                                    <p> Breakfast: {activity.breakfast}</p>
+                                    <p>MorningActivity: {activity.morningActivity}</p>
+                                    <p>Lunch: {activity.lunch}</p>
+                                    <p>NapStartTime: {activity.napStartTime}</p>
+                                    <p>NapEndTime: {activity.napEndTime}</p>
+                                    <p>AfternoonSnack: {activity.afternoonSnack}</p>
+                                    <p>AfternoonActivity: {activity.afternoonActivity}</p>
+                                </div> 
+                            ))}*/}
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
             </>
         ) 
     }

@@ -20,7 +20,7 @@ class HomePage extends Component {
 
         </div>
         <div>br</div>
-        <div class="ui grid">
+        {/* <div class="ui grid">
         <div class="four wide column">
           <div class="ui fluid vertical tabular menu">
             <a class="active item">Bio</a>
@@ -34,7 +34,7 @@ class HomePage extends Component {
             This is an stretched grid column. This segment will always match the tab height
           </div>
         </div>
-      </div>
+      </div> */}
 
       
       </>

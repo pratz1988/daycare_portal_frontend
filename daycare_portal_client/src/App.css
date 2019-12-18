@@ -38,7 +38,7 @@
 }
 
 .imgDimn{
-  width: 900px;
+  width: 1150px;
   height: 700px;
 }
 .bcImage {
@@ -48,4 +48,17 @@
   /* background-size: 100% 100%; */
   background-size: cover;
 
+}
+.activities {
+  margin-left: 150px;
+  text-align: center;
+}
+.leftAlign {
+  text-align: left;
+}
+.mrgnLeft {
+margin-left: 150px;
+}
+.mrgnRight {
+  margin-right: 10px;
 }

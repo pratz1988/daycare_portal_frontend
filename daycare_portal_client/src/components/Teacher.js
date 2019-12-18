@@ -79,7 +79,7 @@ class Teacher extends Component {
    
     render() {
         return (
-            <>
+            <div>
             <h1>Activity Form</h1>
             <form onSubmit={this.handleSubmit}>
                 <div>
@@ -175,7 +175,7 @@ class Teacher extends Component {
                 <input type="submit" value="Delete" />{""}
                 <button class="ui yellow basic button">Yellow</button>
             </form>
-            </>
+            </div>
         )
     }
 }

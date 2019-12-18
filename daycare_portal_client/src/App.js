@@ -5,12 +5,13 @@ import LoginForm from './components/LoginForm';
 
 // import bulma
 import './App.css';
+import ParentView from './components/ParentView';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: true
     }
   }
   toggleLogin() {
@@ -19,7 +20,7 @@ class App extends Component {
     });
   }
   render() {
-    const renderView = this.state.isLoggedIn ?  <HomePage /> : <diV className='bcImage imgDimn' ><LoginForm /></diV>
+    const renderView = this.state.isLoggedIn ?  <MainComponent /> : <div className='bcImage imgDimn'><LoginForm /></div>
       return (
         <>
             
