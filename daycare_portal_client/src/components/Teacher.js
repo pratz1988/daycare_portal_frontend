@@ -15,18 +15,33 @@ class Teacher extends Component {
             afternoonActivity: '',
             date: '',
             child_id: 1,
-            teacher_id: 1,
+            teacher_id: 0,
             allChildIds: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.setTeacher = this.setTeacher.bind(this);
     }
    
     //get TeacherId after Login
     // getTecaher()
-    componentDidMount() {
+    async componentDidMount() {
+        console.log(sessionStorage.getItem("teacherId"));
+        await this.setTeacher();
         this.getAllChildIds();
-    }
+      }
+    
+      setTeacher() {
+        if (sessionStorage.getItem("teacherId")) {
+          this.setState({
+            teacher_id: sessionStorage.getItem("teacherId")
+          });
+        } else {
+        }
+      }
+    // componentDidMount() {
+    //     this.getAllChildIds();
+    // }
     //Get all Children Ids
     async getAllChildIds() {
         const response = await axios(`/children`);
@@ -80,7 +95,7 @@ class Teacher extends Component {
     render() {
         return (
             <div>
-            <h1>Activity Form</h1>
+            {/* <h1>Activity Form</h1> */}
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label htmlFor="breakfast">Breakfast: </label>
@@ -170,10 +185,11 @@ class Teacher extends Component {
                     placeholder="add date"
                     />
                 </div><br></br>
-                <input type="submit" value="create new activity" />{""}
-                <input type="submit" value="Edit" />{""}
-                <input type="submit" value="Delete" />{""}
-                <button class="ui yellow basic button">Yellow</button>
+                <input type="submit" value="Create" class="ui olive basic button"/>{""}
+                {/* <input type="submit" value="Edit" />{""} */}
+                <button class="ui yellow basic button">Edit</button>
+                <input type="submit" value="Delete" class="ui grey basic button"/>{""}
+                
             </form>
             </div>
         )

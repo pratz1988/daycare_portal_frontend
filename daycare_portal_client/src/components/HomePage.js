@@ -1,45 +1,75 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import LoginForm from "./LoginFormParent";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class HomePage extends Component {
-    constructor(){
-        super()
-    }
-    render(){
-        return(
-        <>
-        <div className='bcImage imgDimn'> 
-            <div>
-                <div class="ui pointing secondary menu">
-                    <a class="active item">Home</a>
-                    <a class="item">For Parents</a>
-                    <a class="item">For Teachers</a>
-                    <div class="right menu"><a class="item">Login</a></div>
-                </div>
-                {/* <div class="ui segment"><img src="/images/wireframe/media-paragraph.png" width="200px"/></div> */}
+  constructor(props) {
+    super(props);
+    this.state = {
+      homeButton: false,
+      parentsButton: false,
+      teachersButton: false
+    };
+    this.homeButtonTrue = this.homeButtonTrue.bind(this);
+    this.parentsButtonTrue = this.parentsButtonTrue.bind(this);
+    this.teachersButtonTrue = this.teachersButtonTrue.bind(this);
+  }
+
+  homeButtonTrue() {
+    this.setState({
+      homeButton: true,
+      parentsButton: false,
+      teachersButton: false
+    });
+  }
+  parentsButtonTrue() {
+    console.log("parents button clicked");
+    this.setState({
+      parentsButton: true,
+      homeButton: false,
+      teachersButton: false
+    });
+  }
+  teachersButtonTrue() {
+    this.setState({
+      teachersButton: true,
+      parentsButton: false,
+      homeButton: false
+    });
+  }
+
+  render() {
+    const { homeButton, parentsButton, teachersButton } = this.state;
+
+    return (
+      <>
+        <div className="bcImage imgDimn">
+          <div>
+            <div class="ui pointing secondary menu">
+              <Link to="/">
+                <a class="active item" onClick={this.homeButtonTrue}>
+                  Home
+                </a>
+              </Link>
+              <Link to="/ForParents">
+                <a class="item" onClick={this.parentsButtonTrue}>
+                  For Parents
+                </a>
+              </Link>
+              <Link to="/ForTeachers">
+                <a class="item" onClick={this.teachersButtonTrue}>
+                  For Teachers
+                </a>
+              </Link>
+              <div class="right menu">
+                <a class="item">Login</a>
+              </div>
             </div>
-
-        </div>
-        <div>br</div>
-        {/* <div class="ui grid">
-        <div class="four wide column">
-          <div class="ui fluid vertical tabular menu">
-            <a class="active item">Bio</a>
-            <a class=" item">Pics</a>
-            <a class="item">Companies</a>
-            <a class="item">Links</a>
           </div>
         </div>
-        <div class="stretched twelve wide column">
-          <div class="ui segment">
-            This is an stretched grid column. This segment will always match the tab height
-          </div>
-        </div>
-      </div> */}
-
-      
       </>
-        )
-    }
+    );
+  }
 }
 
 export default HomePage;
