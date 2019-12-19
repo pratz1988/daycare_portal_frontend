@@ -38,8 +38,13 @@
 }
 
 .imgDimn {
-  width: 1150px;
-  height: 650px;
+  width: 1350px;
+  height: 750px;
+}
+.bcImgParent {
+  background-image: url('https://as2.ftcdn.net/jpg/02/57/03/37/500_F_257033773_bWePCbifvglTauvCwHY3rluphWWbKjcm.jpg');
+  background-size: cover;
+  z-index: -1;
 }
 .bcImage {
   /* background-image: url('https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg'); */
@@ -69,7 +74,7 @@
 }
 .dayContainer {
   text-align: center;
-  margin-top: 220px;
+  margin-top: 270px;
   /* width: 300px;
   height: 200px;
   background-color: white;
@@ -80,4 +85,10 @@
 }
 .bcTeacher {
   background-color: rgb(117, 150, 151);
+}
+.green {
+  color: green;
+}
+.red{
+  color: red;
 }

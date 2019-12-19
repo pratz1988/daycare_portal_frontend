@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+let base_url = "https://daycare-portal.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
 class ParentView extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +44,7 @@ class ParentView extends Component {
   }
 
   async getChildId() {
-    const response = await axios(`/parents/${this.state.parentId}`);
+    const response = await axios(`${base_url}/parents/${this.state.parentId}`);
     const parentsData = response.data;
     this.setState({
       childId: parentsData.children[0].id,
@@ -52,7 +57,7 @@ class ParentView extends Component {
     this.getActivity();
   }
   async getActivity() {
-    const response = await axios(`/children/${this.state.childId}`);
+    const response = await axios(`${base_url}/children/${this.state.childId}`);
     const childActivityData = response.data;
     let activities = childActivityData.activities;
     // let today  = new Date();
@@ -86,40 +91,38 @@ class ParentView extends Component {
         thursdaySelected: "item",
         fridaySelected: "item"
       });
-    }else if (day === "Wednesday") {
-        this.setState({
-          mondaySelected: "item",
-          tuesdaySelected: "item",
-          wednesdaySelected: "active item",
-          thursdaySelected: "item",
-          fridaySelected: "item"
-        });
-      }
-      else if (day === "Thursday") {
-        this.setState({
-          mondaySelected: "item",
-          tuesdaySelected: "item",
-          wednesdaySelected: "item",
-          thursdaySelected: "active item",
-          fridaySelected: "item"
-        });
-      }
-      else if (day === "Friday") {
-        this.setState({
-          mondaySelected: "item",
-          tuesdaySelected: "item",
-          wednesdaySelected: "item",
-          thursdaySelected: "item",
-          fridaySelected: "active item"
-        });
-      }
+    } else if (day === "Wednesday") {
+      this.setState({
+        mondaySelected: "item",
+        tuesdaySelected: "item",
+        wednesdaySelected: "active item",
+        thursdaySelected: "item",
+        fridaySelected: "item"
+      });
+    } else if (day === "Thursday") {
+      this.setState({
+        mondaySelected: "item",
+        tuesdaySelected: "item",
+        wednesdaySelected: "item",
+        thursdaySelected: "active item",
+        fridaySelected: "item"
+      });
+    } else if (day === "Friday") {
+      this.setState({
+        mondaySelected: "item",
+        tuesdaySelected: "item",
+        wednesdaySelected: "item",
+        thursdaySelected: "item",
+        fridaySelected: "active item"
+      });
+    }
   }
 
   render() {
     const { parentName, childName, todayActivity } = this.state;
     return (
       <>
-        <div className="bcImage imgDimn">
+        <div className="bcImgParent imgDimn">
           <div>
             <div class="ui pointing secondary menu">
               <Link to="/">
@@ -155,17 +158,32 @@ class ParentView extends Component {
                 >
                   Tuesaday
                 </a>
-                <a class={this.state.wednesdaySelected} onClick={() => {
+                <a
+                  class={this.state.wednesdaySelected}
+                  onClick={() => {
                     this.changeDay("Wednesday");
-                  }}>Wednesday</a>
+                  }}
+                >
+                  Wednesday
+                </a>
 
-                <a class={this.state.thursdaySelected} onClick={() => {
+                <a
+                  class={this.state.thursdaySelected}
+                  onClick={() => {
                     this.changeDay("Thursday");
-                  }}>Thursday</a>
+                  }}
+                >
+                  Thursday
+                </a>
 
-                <a class={this.state.fridaySelected} onClick={() => {
+                <a
+                  class={this.state.fridaySelected}
+                  onClick={() => {
                     this.changeDay("Friday");
-                  }}>Friday</a>
+                  }}
+                >
+                  Friday
+                </a>
               </div>
             </div>
             <div class="stretched ten wide column">
@@ -228,10 +246,7 @@ class ParentView extends Component {
             </div>
             </form>
           </div> */}
-
-          
         </div>
-
       </>
     );
   }

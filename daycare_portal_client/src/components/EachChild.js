@@ -3,6 +3,12 @@ import axios from "axios";
 import Teacher from "./Teacher";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+let base_url = "https://daycare-portal.herokuapp.com";
+
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3000";
+}
+
 class EachChild extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +16,8 @@ class EachChild extends Component {
       currentChildId: 0,
       allChildrenNames: [],
       clickedOnChildName: false,
-      selectedChild: {}
+      selectedChild: {},
+      toggleColor: "green"
     };
     this.onClickChildName = this.onClickChildName.bind(this);
     this.getAllChildrenNmaes = this.getAllChildrenNmaes.bind(this);
@@ -20,7 +27,7 @@ class EachChild extends Component {
   }
   //Get all Children Names
   async getAllChildrenNmaes() {
-    const response = await axios(`/children`);
+    const response = await axios(`${base_url}/children`);
     const childrenData = response.data;
     this.setState({
       allChildrenNames: childrenData
@@ -40,7 +47,7 @@ class EachChild extends Component {
     // const renderView = clickedOnChildName ? <Teacher selectedChild={selectedChild}/> : '';
     return (
       <>
-        <div className=" bcImag imgDimn ">
+        <div className=" bcImag imgDim ">
           <div class="ui pointing secondary menu">
             <Link to="/">
               <a class=" item">Home</a>
@@ -56,27 +63,29 @@ class EachChild extends Component {
 
           <div class="ui centered three column grid">
             <div class="column">
-           
               <h3>Activity Form</h3>
-              
               {this.state.clickedOnChildName ? (
                 <div class="ui segment ">
-                 <div class= "ten wide" >
-                  <Teacher selectedChild={selectedChild} />
-                </div>
+                  <div class="ten wide">
+                    <Teacher selectedChild={selectedChild} />
+                  </div>
                 </div>
               ) : (
                 ""
               )}{" "}
               {/* condition ends here */}
               <div class="ui left rail">
-                <div><br></br></div>
-                <div><br></br></div>
-              
+                <div>
+                  <br></br>
+                </div>
+                <div>
+                  <br></br>
+                </div>
+
                 {/* Left segment */}
                 <div class="">
                   <div></div>
-                  
+
                   <div class="ui sticky">
                     <div class="ui divided items">
                       {this.state.allChildrenNames.map(
@@ -86,7 +95,6 @@ class EachChild extends Component {
                               <div class="ui tiny image"></div>
                               <div class="content ">
                                 <div>
-                                  
                                   <a
                                     class="header active item"
                                     onClick={() =>
@@ -183,7 +191,7 @@ class EachChild extends Component {
   </div>
 </div> */}
 
-{/* hide /show
+        {/* hide /show
 <div>
   <button class="ui button">Hide</button>
   <div class="ui hidden divider"></div>
@@ -195,7 +203,6 @@ class EachChild extends Component {
 
 
 */}
-
       </>
     );
   }
