@@ -3,6 +3,7 @@ import MainComponent from "./components/MainComponent";
 import HomePage from "./components/HomePage";
 import LoginFormParent from "./components/LoginFormParent";
 import LoginFormTeacher from "./components/LoginFormTeacher";
+import NoteFromParents from "./components/NoteFromParents";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import "./App.css";
@@ -12,23 +13,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      homeButton: false,
-      parentsButton: true,
-      teachersButton: false,
+      isLoggedIn: false,
       user_category: ""
     };
-    this.homeButtonFalse = this.homeButtonFalse.bind(this);
     this.setUserCategory = this.setUserCategory.bind(this);
   }
+  
   toggleLogin() {
     this.setState((prevState, props) => {
       return { isLoggedIn: !prevState.isLoggedIn };
-    });
-  }
-
-  homeButtonFalse() {
-    this.setState({
-      homeButton: false
     });
   }
 
@@ -64,6 +57,12 @@ class App extends Component {
             path="/Main"
             render={() => (
               <MainComponent user_category={this.state.user_category} />
+            )}
+          />
+          <Route
+            path="/Note"
+            render={() => (
+              <NoteFromParents />
             )}
           />
         </div>

@@ -42,32 +42,33 @@ class HomePage extends Component {
     const { homeButton, parentsButton, teachersButton } = this.state;
 
     return (
-      <>
-        <div className="bcImage imgDimn">
+      <div>
+        <div className="bcImage imgDimn ">
           <div>
             <div class="ui pointing secondary menu">
               <Link to="/">
-                <a class="active item" onClick={this.homeButtonTrue}>
-                  Home
-                </a>
+                <a class="active item">Home</a>
               </Link>
               <Link to="/ForParents">
-                <a class="item" onClick={this.parentsButtonTrue}>
-                  For Parents
-                </a>
+                <a class="item">For Parents</a>
               </Link>
               <Link to="/ForTeachers">
-                <a class="item" onClick={this.teachersButtonTrue}>
-                  For Teachers
-                </a>
+                <a class="item">For Teachers</a>
               </Link>
               <div class="right menu">
                 <a class="item">Login</a>
               </div>
             </div>
           </div>
+
+          <div className="dayContainer headerFont">
+            <div class="ui four  column segment">
+              <h1> Daycare portal </h1>
+              <h2> An app for parents and teachers </h2>
+            </div>
+          </div>
         </div>
-      </>
+      </div>
     );
   }
 }

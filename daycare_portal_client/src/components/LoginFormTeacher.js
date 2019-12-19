@@ -73,7 +73,7 @@ class LoginFormTeacher extends Component {
                   fluid
                   icon="user"
                   iconPosition="left"
-                  placeholder="E-mail address"
+                  placeholder="Enter your ID"
                   id="userId"
                   onChange={this.handleChange}
                   value={this.state.userId}

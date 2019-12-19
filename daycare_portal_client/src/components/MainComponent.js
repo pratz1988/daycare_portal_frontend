@@ -34,26 +34,7 @@ class MainComponent extends Component {
         <div>{this.setView()}</div>
       </>
     );
-    // const { loggedIn } = this.state;
-    // let renderView;
-    // if (loggedIn === "parent") {
-    //   renderView = (
-    //     <div className="App">
-    //       {" "}
-    //       <ParentView />{" "}
-    //     </div>
-    //   );
-    // } else if (loggedIn === "teacher") {
-    //   renderView = (
-    //     <div>
-    //       {" "}
-    //       <EachChild />{" "}
-    //     </div>
-    //   );
-    // }
-
-    // // const renderView = loggedIn ?  <div className="App"> <ParentView /> </div>: <EachChild />
-    // return <>{renderView}</>;
+   
   }
 }
 

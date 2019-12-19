@@ -86,7 +86,33 @@ class ParentView extends Component {
         thursdaySelected: "item",
         fridaySelected: "item"
       });
-    }
+    }else if (day === "Wednesday") {
+        this.setState({
+          mondaySelected: "item",
+          tuesdaySelected: "item",
+          wednesdaySelected: "active item",
+          thursdaySelected: "item",
+          fridaySelected: "item"
+        });
+      }
+      else if (day === "Thursday") {
+        this.setState({
+          mondaySelected: "item",
+          tuesdaySelected: "item",
+          wednesdaySelected: "item",
+          thursdaySelected: "active item",
+          fridaySelected: "item"
+        });
+      }
+      else if (day === "Friday") {
+        this.setState({
+          mondaySelected: "item",
+          tuesdaySelected: "item",
+          wednesdaySelected: "item",
+          thursdaySelected: "item",
+          fridaySelected: "active item"
+        });
+      }
   }
 
   render() {
@@ -129,9 +155,17 @@ class ParentView extends Component {
                 >
                   Tuesaday
                 </a>
-                <a class="item">Wednesday</a>
-                <a class="item">Thursday</a>
-                <a class="item">Friday</a>
+                <a class={this.state.wednesdaySelected} onClick={() => {
+                    this.changeDay("Wednesday");
+                  }}>Wednesday</a>
+
+                <a class={this.state.thursdaySelected} onClick={() => {
+                    this.changeDay("Thursday");
+                  }}>Thursday</a>
+
+                <a class={this.state.fridaySelected} onClick={() => {
+                    this.changeDay("Friday");
+                  }}>Friday</a>
               </div>
             </div>
             <div class="stretched ten wide column">
@@ -181,7 +215,23 @@ class ParentView extends Component {
               </div>
             </div>
           </div>
+
+          {/* <div>  <br></br>
+            <form class="ui form">
+            <div class="equal width fields">
+            <div class="field">
+              <label>About</label>
+              <textarea placeholder="Tell us more about you..." rows="3"></textarea>
+            </div>
+          
+            <div class="field"><button class="ui button">Submit</button></div>
+            </div>
+            </form>
+          </div> */}
+
+          
         </div>
+
       </>
     );
   }

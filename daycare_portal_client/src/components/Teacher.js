@@ -96,7 +96,7 @@ class Teacher extends Component {
         return (
             <div>
             {/* <h1>Activity Form</h1> */}
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} class= "ui form">
                 <div>
                     <label htmlFor="breakfast">Breakfast: </label>
                     <input
