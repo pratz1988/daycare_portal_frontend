@@ -227,6 +227,7 @@ class ParentView extends Component {
                   <div class="four wide column leftAlign mrgnLeft">
                     <p>ParentName :</p>
                     <p>ChildName: </p>
+                    <p>Date: </p>
                     <p> Breakfast: </p>
                     <p>MorningActivity: </p>
                     <p>Lunch: </p>
@@ -240,6 +241,7 @@ class ParentView extends Component {
                     <p>{childName}</p>
                     {todayActivity.map(activity => (
                       <div key={activity.id}>
+                         <p> {activity.date}</p>
                         <p> {activity.breakfast}</p>
                         <p>{activity.morningActivity}</p>
                         <p> {activity.lunch}</p>
