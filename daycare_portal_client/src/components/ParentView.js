@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import moment from "moment";
 
 let base_url = "https://daycare-portal.herokuapp.com";
 
@@ -20,7 +21,8 @@ class ParentView extends Component {
       tuesdaySelected: "item",
       wednesdaySelected: "item",
       thursdaySelected: "item",
-      fridaySelected: "item"
+      fridaySelected: "item",
+      datesOfWeek: []
     };
     this.setParent = this.setParent.bind(this);
     this.changeDay = this.changeDay.bind(this);
@@ -29,6 +31,24 @@ class ParentView extends Component {
   // async getParentId() {}
 
   async componentDidMount() {
+    var newDatesOfWeek = this.state.datesOfWeek;
+
+    for (let x = 1; x <= 5; x++) {
+      let date = moment()
+        .day(x)
+        .toDate();
+
+      let formatDate =
+        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+      console.log(formatDate);
+      newDatesOfWeek.push(formatDate);
+    }
+
+    this.setState({
+      datesOfWeek: newDatesOfWeek
+    });
+
     console.log(sessionStorage.getItem("parentId"));
     await this.setParent();
     this.getChildId();
@@ -54,16 +74,29 @@ class ParentView extends Component {
     console.log(this.state.parentName);
 
     ////// Calling getActivity() method ////////////
-    this.getActivity();
+    let today = new Date();
+    let todayDate =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    this.getActivity(today.getDay(), todayDate);
   }
-  async getActivity() {
+  async getActivity(day, todayDate) {
     const response = await axios(`${base_url}/children/${this.state.childId}`);
     const childActivityData = response.data;
     let activities = childActivityData.activities;
-    // let today  = new Date();
+    // let today = new Date();
     // console.log(activities[0].date)
-    // let todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let todayDate = "2019-12-20";
+    // let todayDate =
+    //   today.getFullYear() +
+    //   "-" +
+    //   (today.getMonth() + 1) +
+    //   "-" +
+    //   today.getDate();
+    // let todayDate = "2019-12-20";
+    console.log(todayDate);
     let todayActivity = activities.filter(function(activity) {
       return activity.date === todayDate;
     });
@@ -72,10 +105,12 @@ class ParentView extends Component {
       todayActivity: todayActivity
     });
     console.log(this.state.todayActivity[0]);
+
+    this.changeDay(day);
   }
 
   changeDay(day) {
-    if (day === "Monday") {
+    if (day === "Monday" || day === 1) {
       this.setState({
         mondaySelected: "active item",
         tuesdaySelected: "item",
@@ -83,7 +118,7 @@ class ParentView extends Component {
         thursdaySelected: "item",
         fridaySelected: "item"
       });
-    } else if (day === "Tuesday") {
+    } else if (day === "Tuesday" || day === 2) {
       this.setState({
         mondaySelected: "item",
         tuesdaySelected: "active item",
@@ -91,7 +126,7 @@ class ParentView extends Component {
         thursdaySelected: "item",
         fridaySelected: "item"
       });
-    } else if (day === "Wednesday") {
+    } else if (day === "Wednesday" || day === 3) {
       this.setState({
         mondaySelected: "item",
         tuesdaySelected: "item",
@@ -99,7 +134,7 @@ class ParentView extends Component {
         thursdaySelected: "item",
         fridaySelected: "item"
       });
-    } else if (day === "Thursday") {
+    } else if (day === "Thursday" || day === 4) {
       this.setState({
         mondaySelected: "item",
         tuesdaySelected: "item",
@@ -107,7 +142,7 @@ class ParentView extends Component {
         thursdaySelected: "active item",
         fridaySelected: "item"
       });
-    } else if (day === "Friday") {
+    } else if (day === "Friday" || day === 5) {
       this.setState({
         mondaySelected: "item",
         tuesdaySelected: "item",
@@ -145,7 +180,7 @@ class ParentView extends Component {
                 <a
                   class={this.state.mondaySelected}
                   onClick={() => {
-                    this.changeDay("Monday");
+                    this.getActivity("Monday", this.state.datesOfWeek[0]);
                   }}
                 >
                   Monday
@@ -153,7 +188,7 @@ class ParentView extends Component {
                 <a
                   class={this.state.tuesdaySelected}
                   onClick={() => {
-                    this.changeDay("Tuesday");
+                    this.getActivity("Tuesday", this.state.datesOfWeek[1]);
                   }}
                 >
                   Tuesaday
@@ -161,7 +196,7 @@ class ParentView extends Component {
                 <a
                   class={this.state.wednesdaySelected}
                   onClick={() => {
-                    this.changeDay("Wednesday");
+                    this.getActivity("Wednesday", this.state.datesOfWeek[2]);
                   }}
                 >
                   Wednesday
@@ -170,7 +205,7 @@ class ParentView extends Component {
                 <a
                   class={this.state.thursdaySelected}
                   onClick={() => {
-                    this.changeDay("Thursday");
+                    this.getActivity("Thursday", this.state.datesOfWeek[3]);
                   }}
                 >
                   Thursday
@@ -179,7 +214,7 @@ class ParentView extends Component {
                 <a
                   class={this.state.fridaySelected}
                   onClick={() => {
-                    this.changeDay("Friday");
+                    this.getActivity("Friday", this.state.datesOfWeek[4]);
                   }}
                 >
                   Friday

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ParentView from "./ParentView";
 import EachChild from "./EachChild";
 import Teacher from "./Teacher";
+import { Redirect } from "react-router";
 
 class MainComponent extends Component {
   constructor(props) {
@@ -19,10 +20,16 @@ class MainComponent extends Component {
           <ParentView />
         </>
       );
-    } else {
+    } else if (this.props.user_category === "teacher") {
       return (
         <>
           <EachChild />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Redirect to="/" />
         </>
       );
     }
@@ -34,7 +41,6 @@ class MainComponent extends Component {
         <div>{this.setView()}</div>
       </>
     );
-   
   }
 }
 

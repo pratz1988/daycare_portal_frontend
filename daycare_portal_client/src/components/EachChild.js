@@ -42,6 +42,7 @@ class EachChild extends Component {
     });
     await console.log(this.state.selectedChild);
   }
+
   render() {
     const { clickedOnChildName, selectedChild } = this.state;
     // const renderView = clickedOnChildName ? <Teacher selectedChild={selectedChild}/> : '';
@@ -96,7 +97,12 @@ class EachChild extends Component {
                               <div class="content ">
                                 <div>
                                   <a
-                                    class="header active item"
+                                    class={
+                                      childrenData.id ===
+                                      this.state.selectedChild.id
+                                        ? "header active item redName"
+                                        : "header active item greenName"
+                                    }
                                     onClick={() =>
                                       this.onClickChildName(childrenData)
                                     }

@@ -50,7 +50,7 @@ class LoginFormTeacher extends Component {
 
   redirectToMainPage() {
     if (this.state.toMainPage) {
-      return <Redirect to="/Main" />;
+      return <Redirect to="/AfterLogin" />;
     }
   }
 

@@ -54,7 +54,7 @@ class App extends Component {
             )}
           />
           <Route
-            path="/Main"
+            path="/AfterLogin"
             render={() => (
               <MainComponent user_category={this.state.user_category} />
             )}
