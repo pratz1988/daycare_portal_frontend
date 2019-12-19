@@ -38,11 +38,11 @@
 }
 
 .imgDimn {
-  width: 1350px;
-  height: 750px;
+  width: 100vw;
+  height: 100vh;
 }
 .bcImgParent {
-  background-image: url('https://as2.ftcdn.net/jpg/02/57/03/37/500_F_257033773_bWePCbifvglTauvCwHY3rluphWWbKjcm.jpg');
+  background-image: url("https://as2.ftcdn.net/jpg/02/57/03/37/500_F_257033773_bWePCbifvglTauvCwHY3rluphWWbKjcm.jpg");
   background-size: cover;
   z-index: -1;
 }
@@ -61,7 +61,6 @@
 .activities {
   margin-left: 150px;
   text-align: center;
-  
 }
 .leftAlign {
   text-align: left;
@@ -89,6 +88,6 @@
 .green {
   color: green;
 }
-.red{
+.red {
   color: red;
 }
