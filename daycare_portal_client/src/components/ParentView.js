@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -26,6 +27,7 @@ class ParentView extends Component {
     };
     this.setParent = this.setParent.bind(this);
     this.changeDay = this.changeDay.bind(this);
+    this.onClickLogout = this.onClickLogout.bind(this);
   }
   //Getting ParentId who currently loggedin
   // async getParentId() {}
@@ -108,7 +110,10 @@ class ParentView extends Component {
 
     this.changeDay(day);
   }
+  onClickLogout() {
+    console.log("clicked on logout");
 
+  }
   changeDay(day) {
     if (day === "Monday" || day === 1) {
       this.setState({
@@ -157,22 +162,23 @@ class ParentView extends Component {
     const { parentName, childName, todayActivity } = this.state;
     return (
       <>
-        <div className="bcImgParent imgDimn">
-          <div>
+        <div className="bcImgParent imgDimn activities">
+          <div >
             <div class="ui pointing secondary menu">
               <Link to="/">
                 <a class=" item">Home</a>
               </Link>
               <a class="active item">For Parents</a>
               <div class="right menu">
-                <a class="item">logout</a>
+                <Link to="/"> <a class="item" >logout</a></Link>
               </div>
             </div>
             {/* <div class="ui segment"><img src="/images/wireframe/media-paragraph.png" width="200px"/></div> */}
           </div>
-          <div>
+          <div >
             <br></br>
           </div>
+          {/* <div className="actMargin"> */}
           <h1 className="activities">Activities</h1>
           <div class="ui grid">
             <div class="four wide column">
@@ -221,7 +227,7 @@ class ParentView extends Component {
                 </a>
               </div>
             </div>
-            <div class="stretched ten wide column">
+            <div class="stretched eight wide column">
               <div class="ui green segment ">
                 <div class="ui grid">
                   <div class="four wide column leftAlign mrgnLeft">
@@ -241,7 +247,7 @@ class ParentView extends Component {
                     <p>{childName}</p>
                     {todayActivity.map(activity => (
                       <div key={activity.id}>
-                         <p> {activity.date}</p>
+                        <p> {activity.date}</p>
                         <p> {activity.breakfast}</p>
                         <p>{activity.morningActivity}</p>
                         <p> {activity.lunch}</p>
@@ -253,36 +259,31 @@ class ParentView extends Component {
                     ))}
                   </div>
                 </div>
-
-                {/* <p>ParentName: {parentName} </p> 
-                            <p>ChildName: {childName}</p>
-                            {todayActivity.map(activity =>  (
-                                <div key={activity.id} >
-                                    <p> Breakfast: {activity.breakfast}</p>
-                                    <p>MorningActivity: {activity.morningActivity}</p>
-                                    <p>Lunch: {activity.lunch}</p>
-                                    <p>NapStartTime: {activity.napStartTime}</p>
-                                    <p>NapEndTime: {activity.napEndTime}</p>
-                                    <p>AfternoonSnack: {activity.afternoonSnack}</p>
-                                    <p>AfternoonActivity: {activity.afternoonActivity}</p>
-                                </div> 
-                            ))}*/}
               </div>
             </div>
           </div>
+          {/* </div> */}
+         {/* <div>
+//             <br></br>
+//             <form class="ui form makeColumn">
+//               <div class="equal width fields">
+//                 <div class="field">
+//                   <label>Post your Questions</label>
+//                   <textarea
+//                     placeholder="Type your question here"
+//                     rows="3"
+//                   ></textarea>
+//                 </div>
+//               </div>
 
-          {/* <div>  <br></br>
-            <form class="ui form">
-            <div class="equal width fields">
-            <div class="field">
-              <label>About</label>
-              <textarea placeholder="Tell us more about you..." rows="3"></textarea>
-            </div>
-          
-            <div class="field"><button class="ui button">Submit</button></div>
-            </div>
-            </form>
-          </div> */}
+//               <div class="equal width fields">
+//                 <div class="field">
+//                   <button class="ui button">Submit</button>
+//                 </div>
+//               </div>
+//             </form>
+//           </div> */}
+
         </div>
       </>
     );

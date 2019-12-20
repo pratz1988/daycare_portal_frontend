@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Teacher from "./Teacher";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ChildName from "./ChildName";
 
 let base_url = "https://daycare-portal.herokuapp.com";
 
@@ -58,7 +59,7 @@ class EachChild extends Component {
               <a class="item">NoteFromParents</a>
             </Link>
             <div class="right menu">
-              <a class="item">logout</a>
+            <Link to="/"> <a class="item">logout</a></Link>
             </div>
           </div>
 
@@ -96,7 +97,11 @@ class EachChild extends Component {
                               <div class="ui tiny image"></div>
                               <div class="content ">
                                 <div>
-                                  <a
+                                  <ChildName
+                                    childrenData={childrenData}
+                                    onClickChildName={this.onClickChildName}
+                                  />
+                                  {/* <a
                                     class={
                                       childrenData.id ===
                                       this.state.selectedChild.id
@@ -108,7 +113,7 @@ class EachChild extends Component {
                                     }
                                   >
                                     {childrenData.childName}
-                                  </a>
+                                  </a> */}
                                   {/* <div class="meta">Today Activities</div> */}
                                 </div>
                               </div>
@@ -135,67 +140,8 @@ class EachChild extends Component {
 
         {/* Mani Div Ends here */}
 
-        {/* 
-<br></br>
-<div class="ui centered three column grid">
-  <div class="column">
-    <div class="ui  segment">
-      <p> fjkergnre</p>
-      <p> fjkergnre</p>
-      <p> fjkergnre</p>
-      <p> fjkergnre</p>
-      <p> fjkergnre</p>
-
-      <div class="ui left rail">
-        <div class="">
-          <div></div>
-          <div class="ui sticky">
-            <div class="ui divided items">
-              
-              <div class="item">
-                <div class="ui tiny image"></div>
-                <div class="content">
-                  <a class="header">Vivan</a>
-                  <div class="meta">Today Activities</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="ui tiny image"></div>
-                <div class="content">
-                  <a class="header">Followup Article</a>
-                  
-                </div>
-              </div>
-              <div class="item">
-                <div class="ui tiny image"></div>
-                <div class="content">
-                  <a class="header">Followup Article</a>
-                  <div class="meta">By Author</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="ui tiny image"></div>
-                <div class="content">
-                  <a class="header">Followup Article</a>
-                  <div class="meta">By Author</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-            <div class="ui right rail">
-                 <div class="">
-                <div></div>
-                <div class="ui sticky">
-                    <h3 class="ui header">Stuck Content</h3>
-                    <img src="/images/wireframe/image.png" class="ui image" />
-                </div>
-                </div> 
-            </div>
-    </div>
-  </div>
-</div> */}
+ 
+       
 
         {/* hide /show
 <div>

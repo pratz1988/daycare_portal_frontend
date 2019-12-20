@@ -56,6 +56,7 @@ class LoginFormParent extends Component {
     return (
       <>
         {this.redirectToMainPage()}
+
         <Grid
           textAlign="center"
           style={{ height: "100vh" }}

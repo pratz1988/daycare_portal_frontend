@@ -75,7 +75,7 @@ class Teacher extends Component {
       napStartTime: this.state.napStartTime,
       napEndTime: this.state.napStartTime,
       afternoonSnack: this.state.afternoonSnack,
-      afternoonActivity: this.setState.afternoonActivity,
+      afternoonActivity: this.state.afternoonActivity,
       date: this.state.date,
       child_id: this.props.selectedChild.id,
       teacher_id: this.state.teacher_id
