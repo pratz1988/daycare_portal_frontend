@@ -33,6 +33,7 @@ class EachChild extends Component {
     this.setState({
       allChildrenNames: childrenData
     });
+    // this.props.getNoteFromParents(childrenData);
     console.log("all child data..", this.state.allChildrenNames);
   }
 
@@ -62,7 +63,7 @@ class EachChild extends Component {
             <Link to="/"> <a class="item">logout</a></Link>
             </div>
           </div>
-
+          <div><br></br></div>
           <div class="ui centered three column grid">
             <div class="column">
               <h3>Activity Form</h3>

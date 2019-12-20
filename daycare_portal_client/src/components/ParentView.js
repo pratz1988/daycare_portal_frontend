@@ -182,7 +182,7 @@ class ParentView extends Component {
           <h1 className="activities">Activities</h1>
           <div class="ui grid">
             <div class="four wide column">
-              <div class="ui fluid vertical huge tabular menu">
+              <div class="ui fluid vertical huge tabular menu ">
                 <a
                   class={this.state.mondaySelected}
                   onClick={() => {
@@ -264,25 +264,26 @@ class ParentView extends Component {
           </div>
           {/* </div> */}
          {/* <div>
-//             <br></br>
-//             <form class="ui form makeColumn">
-//               <div class="equal width fields">
-//                 <div class="field">
-//                   <label>Post your Questions</label>
-//                   <textarea
-//                     placeholder="Type your question here"
-//                     rows="3"
-//                   ></textarea>
-//                 </div>
-//               </div>
+             <br></br>
+             <form class="ui form makeColumn">
+               <div class="equal width fields">
+                 <div class="field">
+                   <label>Post your Questions</label>
+                   <textarea
+                     placeholder="Type your question here"
+                     rows="3"
+                   ></textarea>
+                 </div>
+               </div>
 
-//               <div class="equal width fields">
-//                 <div class="field">
-//                   <button class="ui button">Submit</button>
-//                 </div>
-//               </div>
-//             </form>
-//           </div> */}
+               <div class="equal width fields">
+                 <div class="field">
+                   <button class="ui button">Submit</button>
+                 </div>
+               </div>
+             </form>
+           </div> */}
+
 
         </div>
       </>

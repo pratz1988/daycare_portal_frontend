@@ -14,9 +14,11 @@ class App extends Component {
     super();
     this.state = {
       isLoggedIn: false,
-      user_category: ""
+      user_category: "",
+      allChildrenData: []
     };
     this.setUserCategory = this.setUserCategory.bind(this);
+    this.getNoteFromParents = this.getNoteFromParents.bind(this);
   }
   
   toggleLogin() {
@@ -29,6 +31,13 @@ class App extends Component {
     this.setState({
       user_category: category
     });
+  }
+
+  getNoteFromParents(allChildren){
+    this.setState({
+      allChildrenData: allChildren
+    })
+    console.log("getNote.."+this.state.allChildrenData);
   }
 
   render() {
@@ -62,7 +71,7 @@ class App extends Component {
           <Route
             path="/Note"
             render={() => (
-              <NoteFromParents />
+              <NoteFromParents allChildrenData={this.state.allChildrenData}/>
             )}
           />
         </div>
