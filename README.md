@@ -11,7 +11,7 @@ The app can be used from two points of view
 
 # Tech behind this
 
-The frontend for the app is built using React.js, JavaScript, HTML/CSS. I have used the CSS framework Semantic UI. This framework was particularly useful for designing the menu bar, panels and other UI components. Using this, I learned how to build single page applications using React.js by breaking everything down into components. Overall, there were nine components. 
+The frontend for the app is built using React.js, JavaScript, HTML/CSS. I have used the CSS framework Semantic UI. This framework was particularly useful for designing the menu bar, panels and other UI components. Using this, I learned how to build single page applications using React.js by breaking everything down into components. 
 
 # Future enhancements / Known issues
 
