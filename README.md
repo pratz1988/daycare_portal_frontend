@@ -1,6 +1,5 @@
 # Day Care Portal App (frontend)
-
-I built this Full stack application as part of my GA (General Assembly) SEI bootcamp. This app is built to facilitate parent teacher interaction in a day care setup, where parents will be able to view what children activities are and teachers will be able to post new activity and also interact with the parents as needed. This is the back end for this app.
+This app is built to facilitate parent teacher interaction in a day care setup, where parents will be able to view what children activities are and teachers will be able to post new activity and also interact with the parents as needed. This is the back end for this app.
 
 # How it works
 
@@ -47,4 +46,4 @@ Note from Parents
 
 # About the author
 
-I (Prathyusha) am a budding programmer, curious about various things in programming. If you have any suggestions or questions, please feel free to reach out to me @ prathyusha.jaddu@gmail.com
+Prathyusha
